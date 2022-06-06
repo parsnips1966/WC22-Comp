@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1 class="white-text">You have submitted your predictions</h1>
+<div class="options">
+  <p>They are: {% for i in items %} 
+    {{i}}
+    {% endfor %}
+  </p>
+</div>
+{% endblock %}}

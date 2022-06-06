@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+<h1>Login</h1>
+<form class="container-fluid options" action="{{ url_for('formreturn') }}" method="POST">
+  <div class="row">
+    <input name="email" type="text">Email<br><br>
+  </div>
+  <div class="row">
+    <input name="password" type="text">Password<br><br>
+  </div>
+  <div class="row">
+    <button class="btn btn-block btn-primary" type="submit"><i class="fas fa-arrow-right-to-bracket"></i>Login</button>
+  </div>
+</form>
+{% endblock %}
