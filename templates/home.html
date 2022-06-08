@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
+{% block script %}
+<script>
+  console.log("worked")
+  $(document).ready(function() {
+    $("button").addClass("animate__animated animate__bounce")
+  })
+</script>
+{% endblock %}
+
 {% block title %}
 Homepage
 {% endblock %}
