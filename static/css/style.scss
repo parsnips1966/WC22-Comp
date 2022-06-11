@@ -4,6 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(#FF0040, #FF0080);
+    font-family: Arial, Helvetica, sans-serif;
 }
 header {
     display: flex;
@@ -13,18 +14,16 @@ header {
     width: 100%;
     padding: 20px;
     background-color: darkslategrey;
+    font-family: Arial, Helvetica, sans-serif;
 }
 label {
-    font-family: Arial, Helvetica, sans-serif;
     color: #811331;
     font-weight: bold;
 }
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
 h2 {
-    font-family: Arial, Helvetica, sans-serif;
     color: #811331;
 }
 h3 {

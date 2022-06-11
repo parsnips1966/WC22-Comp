@@ -14,6 +14,7 @@ body {
           align-items: center;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#FF0040), to(#FF0080));
   background-image: linear-gradient(#FF0040, #FF0080);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -30,21 +31,19 @@ header {
   width: 100%;
   padding: 20px;
   background-color: darkslategrey;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 label {
-  font-family: Arial, Helvetica, sans-serif;
   color: #811331;
   font-weight: bold;
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
 h2 {
-  font-family: Arial, Helvetica, sans-serif;
   color: #811331;
 }
 
