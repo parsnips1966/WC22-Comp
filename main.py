@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
 import json
+import info
 
-with open("details.json", "r") as file:
-    details = json.load(file)
+details = info.details
+countries = info.countries
 
 app = Flask(__name__)
 app.debug = True
@@ -30,7 +31,7 @@ def formnew():
         save = json.dumps(details)
         with open("details.json", "w") as file:
             file.write(save)
-        return render_template("form.html", username=username)
+        return render_template("form.html", username=username, countries=countries)
     return render_template("home.html", error="That email is already in use, please login or use another one.")
 
 @app.route("/formreturn", methods=['GET', 'POST'])
@@ -40,7 +41,7 @@ def formreturn():
     password = request.form['password']
     if email in details.keys():
         if password == details[email]:
-            return render_template("form.html", username=username)
+            return render_template("form.html", username=username, countries=countries)
         return render_template("home.html", error="That password is incorrect.")
     return render_template("home.html", error="That email is not registered.")
 
