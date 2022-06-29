@@ -6,15 +6,31 @@ Login
 
 {% block body %}
 <h1>Login</h1>
-<form class="container-fluid options" action="{{ url_for('formreturn') }}" method="POST">
+<form class="container-fluid options" action="{{ url_for('login') }}" method="POST">
   <div class="row">
-    <input name="email" type="text">Email<br><br>
+    <input name="email" type="text" id="emailinput">Email<br><br>
   </div>
   <div class="row">
-    <input name="password" type="text">Password<br><br>
+    <input name="password" type="text" id="passwordinput">Password<br><br>
   </div>
   <div class="row">
     <button id="button" class="btn btn-block btn-primary" type="submit"><i class="fas fa-arrow-right-to-bracket"></i>Login</button>
   </div>
 </form>
+
+<!-- <script>
+  const emailEdited = false;
+  const passwordEdited = false;
+
+  $("#emailinput").addEventListener("input", (newVal) => { emailEdited = true; });
+  $("#passwordinput").addEventListener("input", (newVal) => { passwordEdited = true; });
+
+  function inputEdited() {
+    if (emailEdited && passwordEdited) {
+      $("#button").style.display = "auto"
+    }
+  }
+
+  $document.addEventListener("ready", () => {$("button").style.display = "none";});
+</script> -->
 {% endblock %}

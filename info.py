@@ -1,5 +1,9 @@
 details = {
-    "parsonsjm20@haybridge.worcs.sch.uk": "password",
-    "hackettdj20@haybridge.worcs.sch.uk": "josephparsons"
+    "parsonsjm20@haybridge.worcs.sch.uk": {
+        "password": "hello",
+        "predictions": []
+    },
+    "hackettdj20@haybridge.worcs.sch.uk": {
+        "password": "josephparsons"
+    }
 }
-countries = ["Senegal", "Netherlands", "Qatar", "Ecuador"]
