@@ -63,6 +63,7 @@ def login():
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
+    global user
     if request.method == "POST":
         email = request.form['email']
         username = email[0: email.index('@')]
@@ -92,11 +93,11 @@ def submitted():
     username = current_user.username
 
     if request.method == "POST":
-        for i in request.form:
-            details[email]["predictions"].insert(i, request.form[i])
+        for i in range(len(request.form)):
+            save = user.predictions
 
         print(details[email]["predictions"])
-        return render_template("submitted.html", username=username, predictions=details[email].predictions)
+        return render_template("submitted.html", username=username, predictions=user.predictions)
 
     return render_template("form.html", username=username)
 
@@ -106,7 +107,6 @@ def submitted():
 def logout():
     logout_user()
     return redirect(url_for("home"))
-
 
 
 if __name__ == "__main__":
