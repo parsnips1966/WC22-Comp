@@ -17,11 +17,11 @@
   <a class="blank-link" href="{{ url_for('home') }}">Joseph's Predictor</a>
   <div id="profile">
     {% if current_user.is_authenticated %}
-    <h3 id="profile-name">Hello, {{username}}!</h3>
-    <h2 id="logout-link"><a href="{{url_for('logout')}}">Logout</a></h2>
+    <h3 id="profile-name">{{username}}</h3>
     <img id="pfp" src="{{ url_for('static', filename='images/pfp.png') }}" alt="profile image">
+    <h2 id="logout-link"><a href="{{url_for('logout')}}">Logout</a></h2>
     {% else %}
-    <h2 id="login-link"><a href="{{url_for('login')}}">Login</a></h2>
+    <h2 style="padding-right: 10px;" id="login-link"><a href="{{url_for('login')}}">Login</a></h2>
     <h2 id="register-link"><a href="{{url_for('signup')}}">Register</a></h2>
     {% endif %}
   </div>

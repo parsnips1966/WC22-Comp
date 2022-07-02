@@ -23,10 +23,11 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
-    predictions = db.Column(JSON)
     username = db.Column(db.String(20), unique=True)
+    predictions = db.Column(JSON)
+    score = db.Column(db.Integer)
 
-# db.create_all()  # This is required on first-time ONLY
+db.create_all()  # This is required on first-time ONLY
 
 
 @login_manager.user_loader
@@ -43,7 +44,6 @@ def home():
 def login():
     if request.method == 'POST':
         email = request.form['email']
-        username = email[0: email.index('@')]
         password = request.form['password']
 
         user_obj = User.query.filter_by(email=email).first()
@@ -73,8 +73,10 @@ def signup():
             return render_template("home.html", error="That email is already in use, please login or use another one.")
 
         user = User(
-            email=email, predictions={}, username=username,
-            password=generate_password_hash(password, salt_length=8, method="pbkdf2:sha256")
+            email=email, username=username,
+            password=generate_password_hash(password, salt_length=8, method="pbkdf2:sha256"), predictions={0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            }, score = 0
         )
 
         db.session.add(user)  # Add user temporarily
@@ -94,12 +96,12 @@ def submitted():
 
     if request.method == "POST":
         for i in range(len(request.form)):
-            save = user.predictions
-
+            game = "game" + str(i+1) + str((i % 2) + 1)
+            #current_user.predictions[game] = request.form[i]
         print(details[email]["predictions"])
-        return render_template("submitted.html", username=username, predictions=user.predictions)
+        return render_template("submitted.html", username=username, predictions=current_user.predictions)
 
-    return render_template("form.html", username=username)
+    return render_template("form.html", username=username, user_predictions=current_user.predictions)
 
 
 @app.route("/logout")
