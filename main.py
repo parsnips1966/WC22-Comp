@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from sqlalchemy.dialects.sqlite.json import JSON
 from info import details
+from json import dumps, loads
 
 # SETUP
 app = Flask(__name__)
@@ -27,7 +28,7 @@ class User(UserMixin, db.Model):
     predictions = db.Column(JSON)
     score = db.Column(db.Integer)
 
-db.create_all()  # This is required on first-time ONLY
+# db.create_all()  # This is required on first-time ONLY
 
 
 @login_manager.user_loader
@@ -72,11 +73,11 @@ def signup():
         if User.query.filter_by(email=email).first() is not None:
             return render_template("home.html", error="That email is already in use, please login or use another one.")
 
+        predictions_dict = {"payload": [0] * 128}
+      
         user = User(
             email=email, username=username,
-            password=generate_password_hash(password, salt_length=8, method="pbkdf2:sha256"), predictions={0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-            }, score = 0
+            password=generate_password_hash(password, salt_length=8, method="pbkdf2:sha256"), predictions=dumps(predictions_dict), score = 0
         )
 
         db.session.add(user)  # Add user temporarily
@@ -91,14 +92,24 @@ def signup():
 @app.route("/submitted", methods=['GET', 'POST'])
 @login_required
 def submitted():
-    email = current_user.email
     username = current_user.username
-
+  
     if request.method == "POST":
-        for i in range(len(request.form)):
-            game = "game" + str(i+1) + str((i % 2) + 1)
-            #current_user.predictions[game] = request.form[i]
-        print(details[email]["predictions"])
+  
+        predictions_dict = loads(current_user.predictions)
+        predictions_list = predictions_dict["payload"]
+      
+        for i, val in enumerate(request.form):
+            predictions_list[i] = val
+
+        predictions_dict["payload"] = predictions_list
+
+        current_user.predictions = dumps(predictions_dict)
+        db.session.commit()
+
+        print(type(current_user.predictions))
+      
+        print(current_user.predictions)
         return render_template("submitted.html", username=username, predictions=current_user.predictions)
 
     return render_template("form.html", username=username, user_predictions=current_user.predictions)
@@ -112,4 +123,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
