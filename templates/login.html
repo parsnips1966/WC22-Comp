@@ -8,10 +8,10 @@ Login
 <h1>Login</h1>
 <form class="container-fluid options" action="{{ url_for('login') }}" method="POST">
   <div class="row">
-    <input name="email" type="text" id="emailinput">Email<br><br>
+    <input name="email" type="email" id="emailinput">Email<br><br>
   </div>
   <div class="row">
-    <input name="password" type="text" id="passwordinput">Password<br><br>
+    <input name="password" type="password" id="passwordinput">Password<br><br>
   </div>
   <div class="row">
     <button id="button" class="btn btn-block btn-primary" type="submit"><i class="fas fa-arrow-right-to-bracket"></i>Login</button>
