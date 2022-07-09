@@ -15,9 +15,13 @@
 
 <header>
   <a class="blank-link" href="{{ url_for('home') }}">Joseph's Predictor</a>
+  <!-- <a href="{{ url_for('leaderboard') }}">Leaderboard</a> -->
   <div id="profile">
     {% if current_user.is_authenticated %}
-    <h3 id="profile-name">{{username}}</h3>
+<!--    <div id="profile-text"> -->
+      <h3 id="profile-name">{{username}}</h3>
+<!--      <h3 id="score">{{score}}</h3>
+    </div> -->
     <img id="pfp" src="{{ url_for('static', filename='images/pfp.png') }}" alt="profile image">
     <h2 id="logout-link"><a href="{{url_for('logout')}}">Logout</a></h2>
     {% else %}

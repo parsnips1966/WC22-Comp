@@ -18,6 +18,7 @@ db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+real_scores = [0] * 126
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -29,6 +30,16 @@ class User(UserMixin, db.Model):
 
 # db.create_all()  # This is required on first-time ONLY
 
+def calculate_score():
+    for i in range(0, 126, 2):
+        if real_scores[i] == preDICTions["payload"][i] and real_scores[i+1] == preDICTions["payload"][i+1]:
+            current_user.score += 3
+        elif real_scores[i] > real_scores[i+1] and preDICTions["payload"][i] > preDICTions["payload"][i+1]:
+            current_user.score += 1
+        elif real_scores[i] < real_scores[i+1] and preDICTions["payload"][i] < preDICTions["payload"][i+1]:
+            current_user.score += 1
+        elif real_scores[i] == real_scores[i+1] and preDICTions["payload"][i] == preDICTions["payload"][i+1]: 
+            current_user.score += 1   
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -90,21 +101,24 @@ def signup():
 @app.route("/submitted", methods=['GET', 'POST'])
 @login_required
 def submitted():
+    global preDICTions, username
     username = current_user.username
     preDICTions = loads(current_user.predictions)
-  
+    #calculate_score()
     if request.method == "POST":
-        num = 0
-        for i in request.form:
+        for num, i in enumerate(request.form):
             preDICTions['payload'][num] = request.form[i]
-            num += 1
 
         current_user.predictions = dumps(preDICTions)
         db.session.commit()
-        return render_template("submitted.html", username=username, predictions=preDICTions['payload'])
+        return render_template("submitted.html", username=username, predictions=preDICTions['payload'], score=current_user.score)
 
-    return render_template("form.html", username=username, predictions=preDICTions['payload'])
+    return render_template("form.html", username=username, predictions=preDICTions['payload'], score=current_user.score)
 
+@app.route("/leaderboard", methods=['GET', 'POST'])
+@login_required
+def leaderboard():
+    return render_template("leaderboard.html", username=username, score=current_user.score)
 
 @app.route("/logout")
 @login_required

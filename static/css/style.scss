@@ -70,6 +70,10 @@ img {
     display: flex;
     justify-content: center;
 }
+#profile-text {
+    display: flex;
+    flex-direction: column;
+}
 #pfp {
     height: 50px;
 }
