@@ -19,6 +19,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 real_scores = [0] * 126
+countries = ["Senegal", "Netherlands", "Qatar", "Ecuador", "Qatar", "Senegal", "Netherlands", "Ecuador", "Ecuador", "Senegal", "Netherlands", "Qatar"]
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -113,7 +114,7 @@ def submitted():
         db.session.commit()
         return render_template("submitted.html", username=username, predictions=preDICTions['payload'], score=current_user.score)
 
-    return render_template("form.html", username=username, predictions=preDICTions['payload'], score=current_user.score)
+    return render_template("form.html", username=username, predictions=preDICTions['payload'], score=current_user.score, countries=countries)
 
 @app.route("/leaderboard", methods=['GET', 'POST'])
 @login_required

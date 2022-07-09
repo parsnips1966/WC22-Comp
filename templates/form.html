@@ -8,12 +8,15 @@ Predictions
   <h1 class="white-text">Hello {{username}}! Input your predictions.</h1>
   <form class="container options" action="{{ url_for('submitted') }}" method="POST">
     <h2 class="text-center">Group A</h2>
+    {% for i in range(0, 12, 2) %}
+    {% set filename = "images/" + countries[i] + ".png" %}
+    {% set filename2 = "images/" + countries[i+1] + ".png" %}
     <div class="row">
       <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/senegal.png") }}">
+        <img src="{{ url_for("static", filename=filename) }}">
       </div>
       <div class="col-2 aligned-center">
-        <p>Senegal</p>
+        <p>{{countries[i]}}</p>
       </div>
       <div class="col-2 aligned-center">
         <input name="game1-1" type="number" min="0" max="50", value="{{predictions[0]}}">
@@ -22,110 +25,13 @@ Predictions
         <input name="game1-2" type="number" min="0" max="50", value="{{predictions[1]}}">
       </div>
       <div class="col-2 aligned-center">
-        <p>Netherlands</p>
+        <p>{{countries[i+1]}}</p>
       </div>
       <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/netherlands.png") }}">
+        <img src="{{ url_for("static", filename=filename2) }}>
       </div>
     </div>
-    <div class="row">
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/qatar.png") }}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Qatar</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game2-1" type="number" min="0" max="50", value="{{predictions[2]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game2-2" type="number" min="0" max="50", value="{{predictions[3]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Ecuador</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/ecuador.png") }}">
-      </div>
-    </div><div class="row">
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/qatar.png") }}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Qatar</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game3-1" type="number" min="0" max="50", value="{{predictions[4]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game3-2" type="number" min="0" max="50", value="{{predictions[5]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Senegal</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/senegal.png") }}">
-      </div>
-    </div><div class="row">
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/netherlands.png") }}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Netherlands</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game4-1" type="number" min="0" max="50", value="{{predictions[6]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game4-2" type="number" min="0" max="50", value="{{predictions[7]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Ecuador</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/ecuador.png") }}">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/ecuador.png") }}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Ecuador</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game5-1" type="number" min="0" max="50", value="{{predictions[0]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game5-2" type="number" min="0" max="50", value="{{predictions[0]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Senegal</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/senegal.png") }}">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/netherlands.png") }}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Netherlands</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game6-1" type="number" min="0" max="50", value="{{predictions[0]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <input name="game6-2" type="number" min="0" max="50", value="{{predictions[0]}}">
-      </div>
-      <div class="col-2 aligned-center">
-        <p>Qatar</p>
-      </div>
-      <div class="col-2 aligned-center">
-        <img src="{{ url_for("static", filename="images/qatar.png") }}">
-      </div>
-    </div>
+    {% endfor %}
 
     <h2 class="text-center">Group B</h2>
     <div class="row">
