@@ -19,7 +19,11 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 real_scores = [0] * 126
-countries = ["Senegal", "Netherlands", "Qatar", "Ecuador", "Qatar", "Senegal", "Netherlands", "Ecuador", "Ecuador", "Senegal", "Netherlands", "Qatar"]
+countries = ["Senegal", "Netherlands", "Qatar", "Ecuador", "Qatar", "Senegal", "Netherlands", "Ecuador", "Ecuador", "Senegal", "Netherlands", "Qatar",
+"England", "Iran", "USA", "Wales", "Wales", "Iran", "England", "USA", "England", "USA", "Wales", "England", 
+"Argentina", "Saudi Arabia", "Mexico", "Poland", "Argentina", "Mexico", "Poland", "Saudi Arabia", "Poland", "Argentina", "Saudi Arabia", "Mexico",
+"Denmark", "Tunisia", "France", "Australia", "Tunisia", "Australia", "France", "Denmark", "Tunisia", "France", "Australia", "Denmark"
+]
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
