@@ -19,10 +19,15 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 real_scores = [0] * 126
-countries = ["Senegal", "Netherlands", "Qatar", "Ecuador", "Qatar", "Senegal", "Netherlands", "Ecuador", "Ecuador", "Senegal", "Netherlands", "Qatar",
+countries = [
+"Senegal", "Netherlands", "Qatar", "Ecuador", "Qatar", "Senegal", "Netherlands", "Ecuador", "Ecuador", "Senegal", "Netherlands", "Qatar",
 "England", "Iran", "USA", "Wales", "Wales", "Iran", "England", "USA", "England", "USA", "Wales", "England", 
 "Argentina", "Saudi Arabia", "Mexico", "Poland", "Argentina", "Mexico", "Poland", "Saudi Arabia", "Poland", "Argentina", "Saudi Arabia", "Mexico",
-"Denmark", "Tunisia", "France", "Australia", "Tunisia", "Australia", "France", "Denmark", "Tunisia", "France", "Australia", "Denmark"
+"Denmark", "Tunisia", "France", "Australia", "Tunisia", "Australia", "France", "Denmark", "Tunisia", "France", "Australia", "Denmark",
+"Germany", "Japan", "Spain", "Costa Rica", "Japan", "Costa Rica", "Spain", "Germany", "Japan", "Spain", "Costa Rica", "Germany",
+"Morocco", "Croatia", "Belgium", "Canada", "Belgium", "Morocco", "Croatia", "Canada", "Croatia", "Belgium", "Costa Rica", "Germany",
+"Switzerland", "Cameroon", "Brazil", "Serbia", "Cameroon", "Serbia", "Brazil", "Switzerland", "Serbia", "Switzerland", "Cameroon", "Brazil",
+"Uruguay", "South Korea", "Portugal", "Ghana", "South Korea", "Ghana", "Portugal", "Uruguay", "South Korea", "Portugal", "Ghana", "Uruguay", 
 ]
 
 class User(UserMixin, db.Model):

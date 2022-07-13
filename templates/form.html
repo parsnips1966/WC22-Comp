@@ -7,11 +7,11 @@ Predictions
 {% block body %}
   <h1 class="white-text">Hello {{username}}! Input your predictions.</h1>
   <form class="container options" action="{{ url_for('submitted') }}" method="POST">
-    {% for i in range(0, 4) %}
-    <h2 class="text-center">Group {{i}}</h2>
-      {% for j in range(0, 12, 2) %}
-        {% set filename = "images/" + countries[i*6+j] + ".png" %}
-        {% set filename2 = "images/" + countries[i*6+j+1] + ".png" %}
+    {% for i in range(0, 8) %}
+    <h2 class="text-center">Group {{i+1}}</h2>
+      {% for j in range(0, 6) %}
+        {% set filename = "images/" + countries[i*12+j] + ".png" %}
+        {% set filename2 = "images/" + countries[i*12+j+1] + ".png" %}
         {% set name = "game" + j|string + "-1" %}
         {% set name2 = "game" + j|string + "-2" %}
         <div class="row">
@@ -19,7 +19,7 @@ Predictions
             <img src="{{ url_for("static", filename=filename) }}">
           </div>
           <div class="col-2 aligned-center">
-            <p>{{countries[i*6+j]}}</p>
+            <p>{{countries[i*12+j]}}</p>
           </div>
           <div class="col-2 aligned-center">
             <input name={{name}} type="number" min="0" max="50", value="{{predictions[0]}}">
@@ -28,7 +28,7 @@ Predictions
             <input name={{name2}} type="number" min="0" max="50", value="{{predictions[1]}}">
           </div>
           <div class="col-2 aligned-center">
-            <p>{{countries[i*6+j+1]}}</p>
+            <p>{{countries[i*12+j+1]}}</p>
           </div>
           <div class="col-2 aligned-center">
             <img src="{{ url_for("static", filename=filename2) }}">
