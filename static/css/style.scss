@@ -30,24 +30,16 @@ h2 {
 h3 {
     font-size: medium;
 }
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
 img {
     width: 50px;
     height: 30px;
 }
-.options {
+.form {
     background-color: white;
     border-radius: 30px;
     margin: 20px;
     padding: 20px;
     min-height: 62vh;
-}
-.form {
-    @extend .options;
     padding-top: 10px;
 }
 #homepage-buttons {
@@ -59,6 +51,13 @@ img {
     color: white;
     align-items: center;
 }
+
+.blank-link {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
 .blank-link:hover {
     color: white;
 }

@@ -62,9 +62,13 @@ def home():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
+
+        #if password reset:
+        #    current_user.password = generate_password_hash(password, salt_length=8, method="pbkdf2:sha256")
 
         user_obj = User.query.filter_by(email=email).first()
 
@@ -107,6 +111,9 @@ def signup():
 
     return render_template("signup.html")
 
+@app.route("/forgotpassword", methods=['GET', 'POST'])
+def forgotpassword():
+    return render_template("forgotpassword.html")
 
 @app.route("/submitted", methods=['GET', 'POST'])
 @login_required
