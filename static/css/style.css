@@ -48,12 +48,6 @@ h2 {
 }
 
 h3 {
-  font-size: medium;
-}
-
-a {
-  text-decoration: none;
-  color: white;
   font-size: 20px;
 }
 
@@ -62,15 +56,15 @@ img {
   height: 30px;
 }
 
-.options, .form {
+a {
+  font-size: 15px;
+}
+
+.content {
   background-color: white;
   border-radius: 30px;
   margin: 20px;
   padding: 20px;
-  min-height: 62vh;
-}
-
-.form {
   padding-top: 10px;
 }
 
@@ -89,11 +83,23 @@ img {
           align-items: center;
 }
 
-.blank-link:hover {
+.blank-link {
+  color: white;
+}
+
+.profile-link, .blank-link {
+  font-size: 20px;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.profile-link:hover, .blank-link:hover {
   color: white;
 }
 
 #footer {
+  position: fixed;
+  bottom: 0;
   background-color: darkslategray;
   width: 100%;
 }

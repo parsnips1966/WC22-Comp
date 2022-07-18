@@ -6,7 +6,7 @@ Login
 
 {% block body %}
 <h1>Login</h1>
-<form class="container-fluid form" action="{{ url_for('login') }}" method="POST">
+<form class="container-fluid content" action="{{ url_for('login') }}" method="POST">
   <div class="row">
     <input name="email" type="email" id="emailinput" placeholder="Email"><br><br>
   </div>
@@ -14,7 +14,7 @@ Login
     <input name="password" type="password" id="passwordinput" placeholder="Password"><br><br>
   </div>
   <div class="row">
-    <a style="color: blue; font-size: 15px;" href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
+    <a href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
   </div>
   <div class="row">
     <button id="button" class="btn btn-block btn-primary" type="submit"><i class="fas fa-arrow-right-to-bracket"></i>Login</button>
