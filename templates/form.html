@@ -4,6 +4,16 @@
 Predictions
 {% endblock %}
 
+{% block script %}
+<script>
+  $(document).ready(function() {
+    $("input").click(function() {
+      $(this).addClass("animate__animated animate__tada")
+    })
+  })
+</script>
+{% endblock %}
+
 {% block body %}
   <h1 class="white-text">Hello {{username}}! Input your predictions.</h1>
   <form class="container content" action="{{ url_for('submitted') }}" method="POST">

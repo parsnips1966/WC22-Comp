@@ -80,7 +80,7 @@ def login():
             return redirect(url_for("submitted"))
 
         else:
-            return render_template("home.html", error="That password is incorrect.")
+            return render_template("login.html", error="That password is incorrect.")
 
     return render_template("login.html")
 

@@ -8,13 +8,16 @@ Login
 <h1>Login</h1>
 <form class="container-fluid content" action="{{ url_for('login') }}" method="POST">
   <div class="row">
+    <p class="text-warning">{{error}}</h3>
+  {% if error == "That password is incorrect." %}
+    <a href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
+  {% endif %}
+  </div>
+  <div class="row">
     <input name="email" type="email" id="emailinput" placeholder="Email"><br><br>
   </div>
   <div class="row">
     <input name="password" type="password" id="passwordinput" placeholder="Password"><br><br>
-  </div>
-  <div class="row">
-    <a href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
   </div>
   <div class="row">
     <button id="button" class="btn btn-block btn-primary" type="submit"><i class="fas fa-arrow-right-to-bracket"></i>Login</button>

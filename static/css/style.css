@@ -12,8 +12,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#FF0040), to(#FF0080));
-  background-image: linear-gradient(#FF0040, #FF0080);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cb0033), to(#da0266));
+  background-image: linear-gradient(#cb0033, #da0266);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -66,6 +66,7 @@ a {
   margin: 20px;
   padding: 20px;
   padding-top: 10px;
+  margin-bottom: 80px;
 }
 
 #homepage-buttons {
@@ -121,6 +122,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin: 10px;
 }
 
 #pfp {
