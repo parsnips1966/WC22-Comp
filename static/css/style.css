@@ -54,6 +54,7 @@ h3 {
 img {
   width: 50px;
   height: 30px;
+  margin: 10px;
 }
 
 a {
@@ -85,16 +86,13 @@ a {
 }
 
 .blank-link {
-  color: white;
-}
-
-.profile-link, .blank-link {
   font-size: 20px;
   text-decoration: none;
   margin: 10px;
+  color: white;
 }
 
-.profile-link:hover, .blank-link:hover {
+.blank-link:hover {
   color: white;
 }
 
@@ -127,5 +125,11 @@ a {
 
 #pfp {
   height: 50px;
+}
+
+#expand {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
 /*# sourceMappingURL=style.css.map */

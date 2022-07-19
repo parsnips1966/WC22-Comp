@@ -10,6 +10,19 @@
   <link rel="stylesheet" href="{{ url_for("static", filename="css/style.css") }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#expand").hide()
+      $("#collapse").click(function() {
+        $("#footer").hide()
+        $("#expand").show()
+      })
+      $("#expand").click(function() {
+        $(this).hide()
+        $("footer").show()
+      })
+    })
+  </script>
   {% block script %} {% endblock %}
   <title>{% block title %} {% endblock %}</title>
 </head>
@@ -24,17 +37,21 @@
 <!--      <h3 id="score">{{score}}</h3>
     </div> -->
     <img id="pfp" src="{{ url_for('static', filename='images/pfp.png') }}" alt="profile image">
-    <h2 id="logout-link"><a class="profile-link" href="{{url_for('logout')}}">Logout</a></h2>
+    <button class="btn btn-primary" id="logout-link"><a class="blank-link" href="{{url_for('logout')}}">Logout</a></button>
     {% endif %}
   </div>
 </header>
 
-<body>{% block body %} {% endblock %}</body>
+<body>
+  <button id="expand"><i class="fas fa-chevron-up"></i></button>
+  {% block body %} {% endblock %}
+</body>
 
 <footer id="footer" class="container-fluid">
   <div class="row">
     <div class="col aligned-center">
-      <h3 style="color: white">Contact me for help, feedback or anything else</h3>
+      <h3 class="text-white">Contact me for help, feedback or anything else</h3>
+      <button id="collapse"><i class="fas fa-chevron-down"></i></button>
     </div>
   </div>
   <div class="row justify-content-center">
