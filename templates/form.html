@@ -32,10 +32,10 @@ Predictions
             <p>{{countries[i*12+j]}}</p>
           </div>
           <div class="col-2 aligned-center">
-            <input name={{name}} type="number" min="0" max="50", value="{{predictions[0]}}">
+            <input class="no-margin" name={{name}} type="number" min="0" max="50", value="{{predictions[0]}}">
           </div>
           <div class="col-2 aligned-center">
-            <input name={{name2}} type="number" min="0" max="50", value="{{predictions[1]}}">
+            <input class="no-margin" name={{name2}} type="number" min="0" max="50", value="{{predictions[1]}}">
           </div>
           <div class="col-2 aligned-center">
             <p>{{countries[i*12+j+1]}}</p>
@@ -46,7 +46,7 @@ Predictions
         </div>
       {% endfor %}
     {% endfor %}
-
+    <br>
     <div class="row">
       <button class="btn btn-primary" type="submit"><i class="fas fa-circle-check"></i>Submit</button>
     </div>

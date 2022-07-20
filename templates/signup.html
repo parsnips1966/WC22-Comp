@@ -8,13 +8,19 @@ Sign Up
 <h1>Sign up</h1>
 <form class="container content" action="{{ url_for('signup') }}" method="POST">
   <div class="row">
-    <input name="email" type="email">Email (use school email if you are a Haybridge student)<br><br>
+    <input name="email" type="email" placeholder="Email (use school email if you are a Haybridge student)">
   </div>
   <div class="row">
-    <input name="password" type="password">Password<br><br>
+    <input name="password" type="password" placeholder="Password">
   </div>
   <div class="row">
-    <input name="confirm-password" type="password">Confirm Password<br><br>
+    <input name="confirm-password" type="password" placeholder="Confirm Password">
+  </div>
+  <div class="row">
+    <p class="text-warning">error</p>
+  <!-- {% if error == "That password is incorrect." %}
+    <a href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
+  {% endif %} -->
   </div>
   <div class="row">
     <button class="btn btn-block btn-primary" type="submit"><i class="fas fa-arrow-right-to-bracket"></i>Sign Up</button>

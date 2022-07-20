@@ -12,14 +12,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     $(document).ready(function() {
-      $("#expand").hide()
+      $("#footer").hide()
+      $("#expand").click(function() {
+        $("#footer").show()
+        $("#expand").hide()
+      })
       $("#collapse").click(function() {
         $("#footer").hide()
         $("#expand").show()
-      })
-      $("#expand").click(function() {
-        $(this).hide()
-        $("footer").show()
       })
     })
   </script>
@@ -43,7 +43,7 @@
 </header>
 
 <body>
-  <button id="expand"><i class="fas fa-chevron-up"></i></button>
+  <button class="btn btn-primary" id="expand"><i class="fas fa-chevron-up"></i></button>
   {% block body %} {% endblock %}
 </body>
 
@@ -51,7 +51,7 @@
   <div class="row">
     <div class="col aligned-center">
       <h3 class="text-white">Contact me for help, feedback or anything else</h3>
-      <button id="collapse"><i class="fas fa-chevron-down"></i></button>
+      <button class="btn btn-primary" id="collapse"><i class="fas fa-chevron-down"></i></button>
     </div>
   </div>
   <div class="row justify-content-center">

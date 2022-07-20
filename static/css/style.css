@@ -55,10 +55,16 @@ img {
   width: 50px;
   height: 30px;
   margin: 10px;
+  border: 1px solid black;
 }
 
 a {
   font-size: 15px;
+}
+
+input {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .content {
@@ -66,8 +72,6 @@ a {
   border-radius: 30px;
   margin: 20px;
   padding: 20px;
-  padding-top: 10px;
-  margin-bottom: 80px;
 }
 
 #homepage-buttons {
@@ -131,5 +135,16 @@ a {
   position: fixed;
   bottom: 0;
   right: 0;
+}
+
+#collapse {
+  margin: 0;
+}
+
+#cinematic-image {
+  border: none;
+  height: 300px;
+  width: 550px;
+  margin: 10px;
 }
 /*# sourceMappingURL=style.css.map */

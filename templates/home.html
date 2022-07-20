@@ -3,7 +3,17 @@
 {% block script %}
 <script>
   $(document).ready(function() {
-    $("button").addClass("animate__animated animate__bounce")
+    $(".btn-block").addClass("animate__animated animate__bounce")
+    $("#footer").show()
+    $("#expand").hide()
+      $("#collapse").click(function() {
+        $("#footer").hide()
+        $("#expand").show()
+      })
+      $("#expand").click(function() {
+        $(this).hide()
+        $("footer").show()
+      })
   })
 </script>
 {% endblock %}
@@ -22,7 +32,7 @@ Homepage
     <div class="col-6 aligned-center">
       <a href="{{ url_for('signup') }}"><button class="btn btn-block btn-primary">Sign Up</button></a>
     </div>
-    <img src="{{url_for("static", filename="images/cinematic footballer.jpg")}} alt="cinematic footballer">
+    <img id="cinematic-image" src="{{url_for("static", filename="images/cinematic footballer.jpg")}}" alt="cinematic footballer">
   </div>
 </div>
 {% endblock %}
